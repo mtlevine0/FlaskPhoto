@@ -90,3 +90,6 @@ ENV/
 
 # Static Uploads
 static/upload/
+
+# Properties file
+properties.txt
