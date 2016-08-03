@@ -1,2 +1,4 @@
 flask
 werkzeug
+peewee
+MySQL-python
