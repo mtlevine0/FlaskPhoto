@@ -37,7 +37,7 @@ def upload():
     if filename:
         fileExtension = filename.split(".")[1]
         db.Image.create(fileName=filename,imageID=imageID)
-        response = redirect("/static/upload/" + imageID + "." + fileExtension, code=302)
+        response = redirect("/" + imageID + "." + fileExtension, code=302)
     else:
         response = Response("Internal Error" , status=500)
 
