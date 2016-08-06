@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from api import upload, view
 import os
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return "Hello World!"
+    return send_from_directory("static/", "index.html")
 
 PORT = int(os.getenv('PORT', '8080'))
 

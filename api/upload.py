@@ -13,8 +13,8 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
     
 def save_file(file, imageID):
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
+    if file and allowed_file(file.filename.lower()):
+        filename = secure_filename(file.filename.lower())
         fileExtension = filename.split(".")[1]
         try:
             file.save(os.path.join("/home/ubuntu/workspace/static/upload", imageID + "." + fileExtension))
@@ -22,7 +22,7 @@ def save_file(file, imageID):
             # TODO: Handle IOError exception
             filename = False
     else:
-        # TODO: handle multiple returns
+        # TODO: invalid filename error
         filename = False
     
     return filename
